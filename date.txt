@@ -1,0 +1,87 @@
+﻿nvm list available
+nvm list
+nvm current
+nvm use
+
+sk-5532b0769c4d434f8252296f1ef4d0db
+sk-cbfkxiuqqxtddt0jjl93jhmflehnmtc3r53qjogyjjrhg177
+
+react：
+分写选 Vue/Angular，混写用 React
+Vue / Angular：结构归结构，逻辑归逻辑
+
+React：结构嵌套在 JS 里，JS 即页面
+
+组件传值：
+直接在页面定义里面 就像函数一样需要参数 才能到这个页面，此时父组件就可以传入值
+
+1-2 登陆界面：
+未实现部分：
+实现部分：mock账号登陆，
+
+系统Home
+header完善：修改密码 功能取消
+部门：成员名单/出勤人数
+会议管理：
+个人会议管理：
+
+0521 breadcrumb 公式父路由实现
+添加 加班管理
+
+会议管理：
+①去除  重置按钮 已有清除全部功能
+②应该使整个页面填充完 不能留有太多空白
+③搜索框 和 查询按钮 靠左
+④存在bug 从。。和到。。如果是最后一天不显示
+⑤删除<div className="timetable-date-sub">{d.slice(5)}</div> 下方没必要再显示一遍
+⑥把这个页面的tsx文件顺需修改 从左到右 从上到下
+⑦整体写的很乱，类似功能 定义 应该放在一起 整理一下
+⑧没有check功能 要求：同一时间段 同一会议室 应该不能添加会议 
+
+①使时间表 居中 显示
+②显示今天和之后的六天 
+③仍旧有bug 我可以添加 5-28的会议 添加完后 总会议数增加 但是 筛选后 仍旧没有 显示 可能是没有5-28？
+
+
+ts：字典添加 字段 const newMeeting: Meeting = { ...meeting, id: ++meetingIdSeq };
+const handleReset = () => {
+        setKeyword('');
+        setAppliedKeyword('');
+        setFilterRooms([]);
+        setFilterFrom('');
+        setFilterTo('');
+        setAppliedFilter({});
+    };
+
+
+会议操作履历
+主页会议设置
+
+0525
+export const 和 function 区别：相当于定义了 一个固定函数 不能再被赋值。
+函数提升：
+function Page() {
+  return <Dialog />
+}
+
+function Dialog() {
+  return <Page />
+}
+实现 添加会议对话框拖动 
+个人会议管理
+
+
+
+①登陆注册功能
+②添加会议功能
+
+
+0528 副作用
+hooks
+useEffect()//
+包括 watch mounted update  订阅 subscribe 和取消订阅 return
+
+useRef页面不更新
+
+①获取dom的工具
+②存储任意值
