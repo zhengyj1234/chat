@@ -1,0 +1,77 @@
+﻿1.react
+分写选 Vue/Angular，混写用 React
+Vue / Angular：结构归结构，逻辑归逻辑
+
+React：结构嵌套在 JS 里，JS 即页面.
+
+2.export interface meeting与 export type meeting区别
+interface：专门定义对象结构 支持继承 自动合并 适合 业务实体
+描述对象结构 → interface 接口可以直接赋值
+type：类型别名
+定义任意类型 / 联合类型 → type
+
+3.export const 和 export function 定义方法
+	const固定函数，不能再被赋值
+	function可以实现函数提升
+function Page() {
+  return <Dialog />
+}
+
+function Dialog() {
+  return <Page />
+}
+
+4.hooks
+①useEffect(()=>{})
+异步，无返回值
+mounted:
+	useEffect(()=>{
+		console.log("mounted");}
+		,[]);
+(watch):
+id改变 重新执行。。。
+	useEffect(()=>{
+		fetchMeetings(id)}
+		,[id]);
+unsubscribe：
+	useEffect(()=>{
+		const timer = setInterval(()=>{});
+		return ()=>{clearInterval(timer);}
+		},[])
+②useRef...
+存任何数据
+获取dom元素
+修改时 要使用 .current 不影响 页面重新渲染，组件不销毁 一直存在
+③useMemo ...
+同步，里面不能有异步。直接返回值，不闪烁
+
+
+
+登陆页面
+功能实现：
+	①使用了useactionstate（自动 ）  工号 密码 密码可视化
+	useActionState：（1 好处 只有 input id => name 其余的empid password isloading 		
+	error一个状态都不用定义 useActionState 全自动控制
+			（2 disabled={isPending} 阻止二次登陆
+			缺点：error时 自动清空 formdata 
+	logout使用 useCallback 不会每次自动渲染
+	②登陆校验 调用 loginService接口 成功 迁移 到top 失败返回信息
+	③登陆简单信息 存储到 localStorage，如果登陆 时长 大于 1天分钟 重新登陆
+主页面：
+	①分块显示 <div header <div aside <div  breadcrumb main footer>> > 
+	replace 不重新跳转 比如登出时 不会 返回；一个path路由导向，防止回到 path不存在的路径
+	②routes 实现 path element ={</>} - navigate `${xx.id}`
+	③appbreadcrumb uselocation
+会议管理
+	①会议室管理 time_slot 48 分组date_xx
+usecallback：{缓存 会变的 函数①函数被放进了 useEffect /useMemo 依赖数组②函数被传给了子组件（并且子组件做了性能优化 memo）}
+usememo
+	②
+个人会议
+
+
+layout：3元表达式 {recentNotes.length === 0 ? (
+                        <div>暂无笔记</div>
+                    ) : (）} v-if 摧毁内容
+warining：
+React Hook useEffect has a missing dependency: 'handleLogout'

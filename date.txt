@@ -87,20 +87,3 @@ useRef页面不更新
 ②存储任意值
 
 
-登陆页面
-功能实现：
-	①使用了useactionstate（自动 ）  工号 密码 密码可视化
-	useActionState：（1 好处 只有 input id => name 其余的empid password isloading 		error一个状态都不用定义 useActionState 全自动控制
-			（2 disabled={isPending} 阻止二次登陆
-	②登陆校验 调用 loginService接口 成功 迁移 到top 失败返回信息
-	③登陆简单信息 存储到 localStorage，如果登陆 时长 大于 30分钟 重新登陆
-主页面：
-	①分块显示 <div header <div aside <div  breadcrumb main footer>> > replace 不		重新跳转
-	②routes 实现 path element ={</>} - navigate `${xx.id}`
-	③appbreadcrumb uselocation
-会议管理
-	①会议室管理
-usecallback：{缓存 会变的 函数①函数被放进了 useEffect /useMemo 依赖数组②函数被传给了子组件（并且子组件做了性能优化 memo）}
-usememo
-	②
-个人会议
